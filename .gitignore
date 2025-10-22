@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+dist/
+build/
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.log
+npm-debug.log*
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.history/
+.idea/
+
+# React
+client/node_modules/
+client/build/
+client/.env
+
+# Express
+server/node_modules/
+server/.env
+server/logs/
+server/tmp/

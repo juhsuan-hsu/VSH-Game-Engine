@@ -1,0 +1,24 @@
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+}
+
+.modal-card {
+  width: min(520px, 92vw); max-height: 85vh; overflow:auto;
+  background: #fff; border-radius: 16px; padding: 18px;
+  box-shadow: 0 12px 36px rgba(0,0,0,.35);
+}
+.modal-header { display:flex; align-items:center; justify-content:space-between; }
+.modal-x { border:0; background:transparent; font-size:24px; cursor:pointer; }
+.modal-hero { width:100%; border-radius:12px; border:1px solid #eee; margin: 8px 0 6px; }
+.modal-msg { margin: 8px 0 16px; line-height: 1.5; }
+.modal-actions { display:flex; gap:8px; justify-content:flex-end; }
+.btn { padding:8px 12px; border-radius:8px; border:1px solid #dee2e6; background:#0ea5e9; cursor:pointer; }
+.btn.primary { background:#16a34a; color:#fff; border-color:#16a34a; }
+
