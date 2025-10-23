@@ -20,11 +20,7 @@ export default function MyGamesPage({ role, setRole }) {
       const user = jwtDecode(token);
       const allGames = res.data.games || [];
 
-      const filtered = user.role === 'Mod'
-        ? allGames
-        : allGames.filter(game => game.user_id === user._id);
-
-      setTotal(filtered.length);
+      setTotal(allGames.length);
       const start = (page - 1) * limit;
       const paginated = filtered.slice(start, start + limit);
 
