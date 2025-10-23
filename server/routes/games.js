@@ -67,6 +67,7 @@ router.put('/:id', authenticate, requireModOrOwner(Game), async (req, res) => {
   const { title, intro, coverImage, steps, map } = req.body;
 
   const sanitizeStep = (s) => ({
+    user_id: req.user.id,
     title: s.title || '',
     qrCode: s.qrCode || '',
     triggerMethod: s.triggerMethod || 'QR',
@@ -158,7 +159,13 @@ router.get('/', authenticate, async (req, res) => {
 
     // Only filter by user_id if not Mod
     if (req.user.role !== 'Mod') {
-      query.user_id = req.user._id;
+      var mongoose = require('mongoose');
+      if (mongoose.isValidObjectId(req.user.id)) {
+        query.user_id = new mongoose.Types.ObjectId(req.user.id);
+      } else {
+        console.warn("Invalid ObjectId fallback:", req.user.id);
+        query.user_id = req.user.id;
+      }
     }
 
     const total = await Game.countDocuments(query);

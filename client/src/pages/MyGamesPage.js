@@ -22,7 +22,7 @@ export default function MyGamesPage({ role, setRole }) {
 
       setTotal(allGames.length);
       const start = (page - 1) * limit;
-      const paginated = filtered.slice(start, start + limit);
+      const paginated = allGames.slice(start, start + limit);
 
       setGames(paginated);
       setLoading(false);
