@@ -735,14 +735,11 @@ export default function GamePage() {
             targetIndex={targetIndex}
             onDetect={() => {
               handleUnlockAR(activeARIndex);
-              openDialog({
-                title: 'Congrats!',
-                message: 'You found the AR target.',
-                confirmText: 'Open',
-                onConfirm: () => { closeDialog(); setActiveCardIndex(activeARIndex); }
-              });
             }}
-            onClose={() => setActiveARIndex(null)}
+            onClose={() =>{ 
+              setActiveCardIndex(activeARIndex);
+              setActiveARIndex(null);
+            }}
           />
         );
       })()}

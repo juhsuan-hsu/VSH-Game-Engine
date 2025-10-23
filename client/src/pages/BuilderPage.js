@@ -586,6 +586,7 @@ export default function BuilderPage() {
 
                           const data = await res.json();
                           if (data.success) {
+                            handleUpdateStep(index, 'arTargetIndex', index);
                             alert("Mind file uploaded!");
                           } else {
                             alert("Upload failed.");
