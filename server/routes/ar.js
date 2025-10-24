@@ -44,6 +44,7 @@ router.get('/mindfile/:gameId/:stepIndex', async (req, res) => {
 router.post('/upload-mind/:gameId/:stepIndex', memoryUpload.single('mind'), async (req, res) => {
   try {
     const { gameId, stepIndex } = req.params;
+    const { arTargetIndex } = req.body; 
     const mindBuffer = req.file?.buffer;
 
     if (!mindBuffer) {
@@ -59,6 +60,11 @@ router.post('/upload-mind/:gameId/:stepIndex', memoryUpload.single('mind'), asyn
     }
 
     game.steps[index].mindFile = mindBuffer;
+
+    if (arTargetIndex !== undefined) {
+      game.steps[index].arTargetIndex = parseInt(arTargetIndex);
+    }
+
     await game.save();
 
     res.json({

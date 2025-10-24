@@ -33,7 +33,7 @@ function requireModOrOwner(model) {
       const doc = await model.findById(req.params.id);
       if (!doc) return res.status(404).json({ error: 'Resource not found' });
 
-      if (doc.user_id.toString() === user._id.toString()) {
+      if (doc.user_id.toString() === user.id.toString()) {
         return next();
       }
 

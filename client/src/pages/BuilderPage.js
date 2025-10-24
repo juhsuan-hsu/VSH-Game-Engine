@@ -577,6 +577,7 @@ export default function BuilderPage() {
 
                         const formData = new FormData();
                         formData.append('mind', file);
+                        formData.append('arTargetIndex', index);
                         setIsLoading(true);
                         try {
                           const res = await fetch(`${baseUrl}/ar/upload-mind/${gameId}/${index}`, {
